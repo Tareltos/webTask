@@ -1,7 +1,7 @@
 package by.tareltos.webtask.servlet;
 
-import by.tareltos.webtask.entity.Creator;
 import by.tareltos.webtask.entity.User;
+import by.tareltos.webtask.utils.Creator;
 import by.tareltos.webtask.wherehouse.UserWherehouse;
 
 import javax.servlet.ServletException;
@@ -13,7 +13,9 @@ import java.io.IOException;
 
 @WebServlet(name = "DoAuthenticationServlet", urlPatterns = "/doAuth")
 public class DoAuthenticationServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         doGet(request, response);
     }
 

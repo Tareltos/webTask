@@ -1,4 +1,4 @@
-package by.tareltos.webtask.entity;
+package by.tareltos.webtask.mailsender;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -10,24 +10,15 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class EmailSender {
-    public static void sent(String to,  String text) {
+    public static void sent(String to, String text, Properties properties) {
+
+        String subject = "WebApp registration Info";
 
 
-        String subject = "Java send mail example";
-
-
-        sendFromGMail(to, subject, text);
+        sendFromGMail(to, subject, text, properties);
     }
 
-    private static void sendFromGMail( String to, String subject, String body) {
-        Properties props = System.getProperties();
-        String host = "smtp.gmail.com";
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.user", "tareltos@gmail.com");
-        props.put("mail.smtp.password", "!!!!");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.auth", "true");
+    private static void sendFromGMail(String to, String subject, String body, Properties props) {
 
         Session session = Session.getDefaultInstance(props);
         MimeMessage message = new MimeMessage(session);
@@ -35,15 +26,12 @@ public class EmailSender {
         try {
             message.setFrom(new InternetAddress(props.getProperty("mail.smtp.user")));
             InternetAddress toAddress = new InternetAddress(to);
-
-
             message.addRecipient(Message.RecipientType.TO, toAddress);
-
 
             message.setSubject(subject);
             message.setText(body);
             Transport transport = session.getTransport("smtp");
-            transport.connect(host, props.getProperty("mail.smtp.user"), props.getProperty("mail.smtp.password"));
+            transport.connect(props.getProperty("host"), props.getProperty("mail.smtp.user"), props.getProperty("mail.smtp.password"));
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
         } catch (AddressException ae) {

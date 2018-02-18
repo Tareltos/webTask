@@ -1,5 +1,6 @@
-package by.tareltos.webtask.entity;
+package by.tareltos.webtask.utils;
 
+import by.tareltos.webtask.entity.User;
 import by.tareltos.webtask.wherehouse.UserWherehouse;
 
 public class Creator {
