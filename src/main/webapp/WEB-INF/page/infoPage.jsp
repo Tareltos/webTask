@@ -1,11 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Vitali
-  Date: 16.02.2018
-  Time: 18:16
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename=".content"/>
 <html>
 <style>
     ul.hr {
@@ -24,22 +21,28 @@
     <title>UserInfo</title>
 </head>
 <body>
-
+<jsp:include page="_header.jsp"/>
 <table>
     <br>
     <br>
     <ul class="hr">
-        <li>Email: ${mail}</li>
-        <li>First Name: ${fname}</li>
-        <li>Last Name: ${lname}</li>
+        <li><fmt:message key="label.Email"/>: ${mail}</li>
+        <li><fmt:message key="label.user.fname"/>: ${fname}</li>
+        <li><fmt:message key="label.user.lname"/>: ${lname}</li>
     </ul>
     <br>
     <br>
     <form method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/loadFile">
+
+        <fmt:message key="loadingfile.fild" var="buttonValue"/>
         <input name="data" type="file">
+
         <br>
-        <input type="submit" name="button" value="Send">
+        <fmt:message key="loadingfile.button" var="buttonValue"/>
+        <input type="submit" name="button" value="${buttonValue}">
     </form>
+
+
 </table>
 </body>
 </html>

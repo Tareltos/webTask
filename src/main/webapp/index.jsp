@@ -1,30 +1,41 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename=".content"/>
+<!DOCTYPE html>
+<html lang="${language}">
 <html>
 <head><title>MainPage</title></head>
 <body>
+
+<jsp:include page="WEB-INF/page/_header.jsp"/>
 <h5>
     <form method="POST" action="${pageContext.request.contextPath}/doAuth">
         <table>
             <tr>
-                <td>Email:</td>
-                <td><input name="mail"/></td>
+                <td><label for="mail"><fmt:message key="label.Email"/>:</label></td>
+                <td><input id="mail" name="mail"></td>
             </tr>
             <tr>
-                <td>Password *</td>
-                <td><input name="password"/></td>
+                <td><label for="pass"><fmt:message key="label.password"/>:</label></td>
+                <td><input id="pass" name="password"></td>
             </tr>
             <tr>
                 <td>
-
-                    <input type="submit" name="button" value="Sign In"/>
-
+                    <fmt:message key="login.button.submit" var="buttonValue"/>
+                    <input type="submit" name="button" value="${buttonValue}"/>
                 </td>
             </tr>
         </table>
     </form>
 
     <form action="${pageContext.request.contextPath}/registrationForm" method="POST">
-        <input type="submit" name="button" value="Register"/>
+        <fmt:message key="login.button.registration" var="buttonValue"/>
+        <input type="submit" name="button" value="${buttonValue}"/>
     </form>
 </h5>
 </body>
