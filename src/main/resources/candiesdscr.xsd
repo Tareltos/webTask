@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/candies" xmlns:tns="http://www.example.com/candies"
+        elementFormDefault="qualified">
+
+    <element name="candies">
+        <complexType>
+            <sequence>
+                <element ref="tns:candy" minOccurs="2" maxOccurs="5"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="candy">
+        <sequence>
+            <element name="date" type="gYearMonth"/>
+            <element name="energy" type="double"/>
+            <element name="ingredients" type="tns:ingredients"/>
+            <element name="energyvalue" type="tns:energyvalue"/>
+            <element name="description" type="tns:validateDescr"></element>
+        </sequence>
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="production" type="string" use="optional"></attribute>
+    </complexType>
+    <simpleType name="validateDescr">
+        <restriction base="string">
+            <pattern value="([^0-9]{0,30})?"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="ingredients">
+        <sequence>
+            <element name="water" type="boolean"></element>
+            <element name="sugar" type="double"></element>
+            <element name="fructose" type="double"></element>
+            <element name="vanillin" type="double"></element>
+        </sequence>
+        <attribute name="chocolatetype">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="white"/>
+                    <enumeration value="black"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+    <complexType name="energyvalue">
+        <sequence>
+            <element name="proteins" type="double"></element>
+            <element name="fats" type="double"></element>
+            <element name="carbohydrates" type="double"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="caramel">
+        <complexContent>
+            <extension base="tns:candy">
+                <attribute name="type" type="string" fixed="Caramel"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="chocolate">
+        <complexContent>
+            <extension base="tns:candy">
+                <attribute name="type">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="Chocolate With filling"/>
+                            <enumeration value="Chocolate Without filling"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="candy" type="tns:candy" abstract="true"></element>
+    <element name="caramel" type="tns:caramel" substitutionGroup="tns:candy"></element>
+    <element name="chocolate" type="tns:chocolate" substitutionGroup="tns:candy"></element>
+
+
+</schema>
+
+
+        <!--Конфеты
+Name – название конфеты.
+Energy– калорийность (ккал).
+Type (должно быть несколько) – тип конфеты (карамель, шоколадная [с начинкой либо нет]).
+Ingredients (должно быть несколько) – ингредиенты: вода, сахар (в мг), фруктоза (в мг), тип шоколада (для шоколадных), ванилин (в мг)
+Value – пищевая ценность: белки (в гр.), жиры (в гр.) и углеводы (в гр.).
+Production – предприятие-изготовитель. -->

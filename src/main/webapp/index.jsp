@@ -13,7 +13,8 @@
 <body>
 
 <jsp:include page="WEB-INF/page/_header.jsp"/>
-<h5>
+
+<table style="margin:auto">
     <form method="POST" action="${pageContext.request.contextPath}/doAuth">
         <table>
             <tr>
@@ -32,11 +33,13 @@
             </tr>
         </table>
     </form>
-
+    <br>
     <form action="${pageContext.request.contextPath}/registrationForm" method="POST">
         <fmt:message key="login.button.registration" var="buttonValue"/>
         <input type="submit" name="button" value="${buttonValue}"/>
     </form>
+    <br>
+</table>
 </h5>
 </body>
 </html>

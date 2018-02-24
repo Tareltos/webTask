@@ -1,23 +1,20 @@
 package by.tareltos.webtask.servlet;
 
-import by.tareltos.webtask.entity.User;
-import by.tareltos.webtask.mailsender.EmailSender;
-import by.tareltos.webtask.wherehouse.UserWherehouse;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.servlet.ServletContext;
+import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
+
 import java.io.*;
-import java.nio.file.Paths;
-import java.util.Properties;
 
 @WebServlet(name = "LoadFileServlet", urlPatterns = "/loadFile")
 @MultipartConfig
@@ -27,12 +24,12 @@ public class LoadFileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
+        processRequest(req, resp);
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -47,8 +44,10 @@ public class LoadFileServlet extends HttpServlet {
         for (Part part : request.getParts()) {
             if (part.getSubmittedFileName() != null) {
                 part.write(uploadFilePath + File.separator + part.getSubmittedFileName());
-                //   part.write("d:\\temp\\" + part. getSubmittedFileName());
-                response.getWriter().print(part.getSubmittedFileName() + " upload successfully");
+
+                RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/page/infoPage.jsp");
+                request.setAttribute("uploadInfo", part.getSubmittedFileName() + " upload successfully");
+                dispatcher.forward(request, response);
             }
 
         }

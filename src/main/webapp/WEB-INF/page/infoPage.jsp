@@ -42,6 +42,19 @@
         <input type="submit" name="button" value="${buttonValue}">
     </form>
 
+    ${uploadInfo}
+    <br>
+
+    <form method="POST" action="${pageContext.request.contextPath}/loadXML">
+        <select id="parser" name="parser" onchange="">
+            <option value="marsh">UnMarshaller</option>
+            <option value="dom">DOMParser</option>
+            <option value="SAX">SAXParser</option>
+            <option value="StAX">StaxParser</option>
+        </select>
+        <fmt:message key="button.loadXMLFile" var="buttonValue"/>
+        <input type="submit" name="button" value="${buttonValue}">
+    </form>
 
 </table>
 </body>

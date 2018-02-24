@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<candies xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.example.com/candies"
+         xsi:schemaLocation="http://www.example.com/candies candiesdscr.xsd">
+
+    <chocolate name="Choco" type="Chocolate With filling">
+        <date>2018-01</date>
+        <energy>560.00</energy>
+        <ingredients chocolatetype="black">
+            <water>true</water>
+            <sugar>0.015</sugar>
+            <fructose>0.14</fructose>
+            <vanillin>0.01</vanillin>
+        </ingredients>
+        <energyvalue>
+            <proteins>0.01</proteins>
+            <fats>2.0</fats>
+            <carbohydrates>1.5</carbohydrates>
+        </energyvalue>
+        <description></description>
+    </chocolate>
+    <caramel name="CarPar" type="Caramel" production="Milka">
+        <date>2018-02</date>
+        <energy>433</energy>
+        <ingredients>
+            <water>true</water>
+            <sugar>0.5</sugar>
+            <fructose>0.4</fructose>
+            <vanillin>0.45</vanillin>
+        </ingredients>
+        <energyvalue>
+            <proteins>0.01</proteins>
+            <fats>154</fats>
+            <carbohydrates>142</carbohydrates>
+        </energyvalue>
+        <description>Good</description>
+    </caramel>
+    <chocolate name="Ch2" type="Chocolate Without filling" production="Pr2">
+        <date>2017-11</date>
+        <energy>451</energy>
+        <ingredients>
+            <water>false</water>
+            <sugar>45</sugar>
+            <fructose>11</fructose>
+            <vanillin>48</vanillin>
+        </ingredients>
+        <energyvalue>
+            <proteins>1</proteins>
+            <fats>17</fats>
+            <carbohydrates>23.0</carbohydrates>
+        </energyvalue>
+        <description>Bitter chocolate</description>
+    </chocolate>
+    <caramel name="CaramSS" type="Caramel">
+        <date>2017-01</date>
+        <energy>423</energy>
+        <ingredients>
+            <water>true</water>
+            <sugar>324</sugar>
+            <fructose>24</fructose>
+            <vanillin>27</vanillin>
+        </ingredients>
+        <energyvalue>
+            <proteins>44</proteins>
+            <fats>2</fats>
+            <carbohydrates>4151</carbohydrates>
+        </energyvalue>
+        <description>Very tasty</description>
+    </caramel>
+</candies>
