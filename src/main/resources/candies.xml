@@ -3,7 +3,7 @@
          xmlns="http://www.example.com/candies"
          xsi:schemaLocation="http://www.example.com/candies candiesdscr.xsd">
 
-    <chocolate name="Choco" type="Chocolate With filling">
+    <chocolate name="ChocolateO" type="Chocolate With filling" production="Milka">
         <date>2018-01</date>
         <energy>560.00</energy>
         <ingredients chocolatetype="black">
@@ -19,10 +19,10 @@
         </energyvalue>
         <description></description>
     </chocolate>
-    <caramel name="CarPar" type="Caramel" production="Milka">
+    <caramel name="Caramel01" production="CARAMEL OOO" type="Caramel" >
         <date>2018-02</date>
         <energy>433</energy>
-        <ingredients>
+        <ingredients chocolatetype="black">
             <water>true</water>
             <sugar>0.5</sugar>
             <fructose>0.4</fructose>
@@ -35,7 +35,7 @@
         </energyvalue>
         <description>Good</description>
     </caramel>
-    <chocolate name="Ch2" type="Chocolate Without filling" production="Pr2">
+    <chocolate name="AlpGold" type="Chocolate Without filling" production="ApGold">
         <date>2017-11</date>
         <energy>451</energy>
         <ingredients>
@@ -51,7 +51,7 @@
         </energyvalue>
         <description>Bitter chocolate</description>
     </chocolate>
-    <caramel name="CaramSS" type="Caramel">
+    <caramel name="Caramel02" production="" type="Caramel">
         <date>2017-01</date>
         <energy>423</energy>
         <ingredients>
