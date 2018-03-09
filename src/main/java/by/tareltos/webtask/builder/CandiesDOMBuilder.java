@@ -29,7 +29,6 @@ public class CandiesDOMBuilder extends AbstractCandiesBuilder {
 
     public CandiesDOMBuilder() {
         this.candies = new HashSet<>();
-        //создание анализатора
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
@@ -38,6 +37,7 @@ public class CandiesDOMBuilder extends AbstractCandiesBuilder {
             LOGGER.catching(Level.FATAL, e);
         }
     }
+
     public void buildSetCandies(String fileName) {
 
         Document doc = null;
@@ -70,11 +70,15 @@ public class CandiesDOMBuilder extends AbstractCandiesBuilder {
 
     private Caramel buildCaramel(Element caramelElement) throws DatatypeConfigurationException {
         Caramel caramel = new Caramel();
-        // заполнение объекта chocolate
+        // заполнение объекта caramel
         caramel.setName(caramelElement.getAttribute("name"));
+        caramel.setType(caramel.getType());
         Element val = (Element) caramelElement.getElementsByTagName("energy").item(0);
-        caramel.setEnergy(Double.parseDouble(val.getTextContent()));
-        caramel.setType(caramelElement.getAttribute("type"));
+        if (val.getTextContent().isEmpty()) {
+            caramel.setDefaultEnergy();
+        } else {
+            caramel.setEnergy(Double.parseDouble(val.getTextContent()));
+        }
         if (caramelElement.getAttribute("production") != null) {
             caramel.setProduction(caramelElement.getAttribute("production"));
         }
@@ -111,11 +115,17 @@ public class CandiesDOMBuilder extends AbstractCandiesBuilder {
         // заполнение объекта chocolate
         chocolate.setName(chocolateElement.getAttribute("name"));
         Element val = (Element) chocolateElement.getElementsByTagName("energy").item(0);
-        chocolate.setEnergy(Double.parseDouble(val.getTextContent()));
+
+        if (val.getTextContent().isEmpty()) {
+            chocolate.setDefaultEnergy();
+        } else {
+            chocolate.setEnergy(Double.parseDouble(val.getTextContent()));
+        }
         chocolate.setType(chocolateElement.getAttribute("type"));
         if (chocolateElement.getAttribute("production") != null) {
             chocolate.setProduction(chocolateElement.getAttribute("production"));
         }
+
         Ingredients ingredients = new Ingredients();
         Element ingrids = (Element) chocolateElement.getElementsByTagName("ingredients").item(0);
         ingredients.setWater(Boolean.parseBoolean(getElementTextContent(ingrids, "water")));

@@ -32,12 +32,11 @@ public class CandiesStAXBuilder extends AbstractCandiesBuilder {
 
     public void buildSetCandies(String fileName) {
         FileInputStream inputStream = null;
-        XMLStreamReader reader = null;
+        XMLStreamReader reader;
         String name;
         try {
             inputStream = new FileInputStream(new File(fileName));
             reader = inputFactory.createXMLStreamReader(inputStream);
-// StAX parsing
             while (reader.hasNext()) {
                 int type = reader.next();
                 if (type == XMLStreamConstants.START_ELEMENT) {
@@ -65,12 +64,17 @@ public class CandiesStAXBuilder extends AbstractCandiesBuilder {
 
     private Candy buildCandy(XMLStreamReader reader) throws XMLStreamException {
         Candy candy;
-        if (reader.getAttributeValue(null, CandyEnum.TYPE.getValue()) != "caramel") {
+        if (reader.getAttributeValue(null, CandyEnum.TYPE.getValue()) != "Caramel" & reader.getAttributeValue(null, CandyEnum.TYPE.getValue()) != null) {
             candy = new Chocolate();
             ((Chocolate) candy).setType(reader.getAttributeValue(null, CandyEnum.TYPE.getValue()));
         } else {
             candy = new Caramel();
-            ((Caramel) candy).setType(reader.getAttributeValue(null, CandyEnum.TYPE.getValue()));
+            String type=reader.getAttributeValue(null, CandyEnum.TYPE.getValue());
+            if(type==null){
+                type = ((Caramel)candy).getType();
+            }
+
+            ((Caramel) candy).setType(type);
         }
         candy.setName(reader.getAttributeValue(null, CandyEnum.NAME.getValue()));
         if (reader.getAttributeValue(null, CandyEnum.PRODUCTION.getValue()) != null) {
@@ -95,7 +99,12 @@ public class CandiesStAXBuilder extends AbstractCandiesBuilder {
                             candy.setDate(xmlGregorianCalendar);
                             break;
                         case ENERGY:
-                            candy.setEnergy(Double.parseDouble(getXMLText(reader)));
+                            String result = getXMLText(reader);
+                            if (result=="") {
+                                candy.setDefaultEnergy();
+                            } else {
+                                candy.setEnergy(Double.parseDouble(result));
+                            }
                             LOGGER.log(Level.DEBUG, "Energy: " + candy.getEnergy());
                             break;
                         case DESCRIPTION:
@@ -213,7 +222,7 @@ public class CandiesStAXBuilder extends AbstractCandiesBuilder {
             try {
                 text = reader.getText();
             } catch (IllegalStateException e) {
-                LOGGER.log(Level.WARN, "Element: " + reader.getLocalName() + " is Empty");
+                LOGGER.log(Level.DEBUG, "Element: " + reader.getLocalName() + " is Empty");
                 text = "";
             }
         }

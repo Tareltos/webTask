@@ -1,5 +1,7 @@
 package by.tareltos.webtask.entity;
 
+import java.util.Objects;
+
 public class User {
 
     private String mail;
@@ -42,5 +44,22 @@ public class User {
                 ", lName='" + lName + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(mail, user.mail) &&
+                Objects.equals(fName, user.fName) &&
+                Objects.equals(lName, user.lName) &&
+                Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(mail, fName, lName, password);
     }
 }

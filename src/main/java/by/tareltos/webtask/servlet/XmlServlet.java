@@ -38,10 +38,10 @@ public class XmlServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        LOGGER.log(Level.DEBUG, request.getServletContext().getRealPath(fileName));
+        LOGGER.log(Level.INFO, request.getServletContext().getRealPath(fileName));
         ValidatorSAXXSD.validateXml(request.getServletContext().getRealPath(fileName), request.getServletContext().getRealPath(SCHEMA_NAME));
-       AbstractCandiesFactory candiesFactory = new AbstractCandiesFactory();
-       candiesFactory.setSchemaName(request.getServletContext().getRealPath(SCHEMA_NAME));
+        AbstractCandiesFactory candiesFactory = new AbstractCandiesFactory();
+        candiesFactory.setSchemaName(request.getServletContext().getRealPath(SCHEMA_NAME));
         AbstractCandiesBuilder builder = candiesFactory.createCandyBuilder(request.getParameter("parser"));
         builder.buildSetCandies(request.getServletContext().getRealPath(fileName));
         request.setAttribute("list", builder.getCandies());

@@ -6,7 +6,7 @@
     <element name="candies">
         <complexType>
             <sequence>
-                <element ref="tns:candy" minOccurs="16" maxOccurs="30"/>
+                <element ref="tns:candy" minOccurs="3" maxOccurs="30"/>
             </sequence>
         </complexType>
     </element>

@@ -1,7 +1,7 @@
 package by.tareltos.webtask.servlet;
 
 import by.tareltos.webtask.entity.User;
-import by.tareltos.webtask.utils.Creator;
+import by.tareltos.webtask.util.Creator;
 import by.tareltos.webtask.wherehouse.UserWherehouse;
 
 import javax.servlet.ServletException;

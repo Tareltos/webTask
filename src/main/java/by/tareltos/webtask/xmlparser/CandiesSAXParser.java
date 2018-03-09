@@ -37,7 +37,7 @@ public class CandiesSAXParser extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        LOGGER.log(Level.DEBUG, "Parsing started");
+        LOGGER.log(Level.INFO, "Parsing started");
 
     }
 
@@ -106,6 +106,7 @@ public class CandiesSAXParser extends DefaultHandler {
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         String s = new String(ch, start, length).trim();
+
         if (currentEnum != null) {
             switch (currentEnum) {
                 case DATE:
@@ -119,8 +120,12 @@ public class CandiesSAXParser extends DefaultHandler {
                     currentCh.setDate(xmlGregorianCalendar);
                     break;
                 case ENERGY:
-                    currentCh.setEnergy(Double.parseDouble(s));
-                    LOGGER.log(Level.DEBUG, "Energy " + s);
+                    if (s.isEmpty()) {
+                        currentCh.setDefaultEnergy();
+                    } else {
+                        currentCh.setEnergy(Double.parseDouble(s));
+                        LOGGER.log(Level.DEBUG, "Energy " + s);
+                    }
                     break;
                 case DESCRIPTION:
                     currentCh.setDescription(s);

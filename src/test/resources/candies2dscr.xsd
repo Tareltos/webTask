@@ -13,8 +13,6 @@
 
     <complexType name="candy">
         <sequence>
-            <element name="date" type="gYearMonth"/>
-            <element name="energy" type="double" default="200"/>
             <element name="ingredients" type="tns:ingredients"/>
             <element name="energyvalue" type="tns:energyvalue"/>
             <element name="description" type="tns:validateDescr"></element>
