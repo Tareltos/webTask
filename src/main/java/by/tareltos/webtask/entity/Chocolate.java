@@ -71,31 +71,5 @@ public class Chocolate
         this.type = value;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Chocolate chocolate = (Chocolate) o;
-        return Objects.equals(type, chocolate.type);
-    }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(type);
-    }
-
-    @Override
-    public String toString() {
-        return "Chocolate{" +
-                "type='" + type + '\'' +
-                ", date=" + date +
-                ", energy=" + energy +
-                ", ingredients=" + ingredients +
-                ", energyvalue=" + energyvalue +
-                ", description='" + description + '\'' +
-                ", name='" + name + '\'' +
-                ", production='" + production + '\'' +
-                '}';
-    }
 }

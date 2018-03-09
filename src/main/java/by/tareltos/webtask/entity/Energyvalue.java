@@ -95,28 +95,5 @@ public class Energyvalue {
         this.carbohydrates = value;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Energyvalue that = (Energyvalue) o;
-        return Double.compare(that.proteins, proteins) == 0 &&
-                Double.compare(that.fats, fats) == 0 &&
-                Double.compare(that.carbohydrates, carbohydrates) == 0;
-    }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(proteins, fats, carbohydrates);
-    }
-
-    @Override
-    public String toString() {
-        return "Energyvalue{" +
-                "proteins=" + proteins +
-                ", fats=" + fats +
-                ", carbohydrates=" + carbohydrates +
-                '}';
-    }
 }

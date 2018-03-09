@@ -3,10 +3,10 @@
          xmlns="http://www.example.com/candies"
          xsi:schemaLocation="http://www.example.com/candies candiesdscr.xsd">
 
-    <chocolate  name="Chocolate" type="Chocolate With filling" production="Milka">
+    <chocolate name="Chocolate" type="Chocolate With filling" production="Milka">
         <date>2018-01</date>
         <energy>560.00</energy>
-        <ingredients chocolatetype="black">
+        <ingredients chocolatetype="white">
             <water>true</water>
             <sugar>0.015</sugar>
             <fructose>0.14</fructose>
@@ -19,10 +19,10 @@
         </energyvalue>
         <description></description>
     </chocolate>
-    <caramel name="Caramel01" production="CARAMEL OOO" type="Caramel" >
+    <caramel name="Caramel01" production="CARAMEL OOO">
         <date>2018-02</date>
         <energy>433</energy>
-        <ingredients chocolatetype="black">
+        <ingredients>
             <water>true</water>
             <sugar>0.5</sugar>
             <fructose>0.4</fructose>
@@ -38,7 +38,7 @@
     <chocolate name="AlpGold" type="Chocolate Without filling" production="ApGold">
         <date>2017-11</date>
         <energy>451</energy>
-        <ingredients>
+        <ingredients chocolatetype="black">
             <water>false</water>
             <sugar>45</sugar>
             <fructose>11</fructose>
@@ -50,213 +50,5 @@
             <carbohydrates>23.0</carbohydrates>
         </energyvalue>
         <description>Bitter chocolate</description>
-    </chocolate>
-    <caramel name="Caramel02">
-        <date>2017-01</date>
-        <energy>423</energy>
-        <ingredients>
-            <water>true</water>
-            <sugar>324</sugar>
-            <fructose>24</fructose>
-            <vanillin>27</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>44</proteins>
-            <fats>2</fats>
-            <carbohydrates>4151</carbohydrates>
-        </energyvalue>
-        <description>Very tasty</description>
-    </caramel>
-    <chocolate  name="Chocolate02" type="Chocolate With filling" production="Milka">
-        <date>2018-01</date>
-        <energy></energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <chocolate  name="Chocolate03" type="Chocolate Without filling" production="Oreo Ltd">
-        <date>2018-02</date>
-        <energy></energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <chocolate  name="Chocolate04" type="Chocolate With filling" production="Kom AOA">
-        <date>2018-02</date>
-        <energy>21</energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <caramel name="Caramel03" production="" type="Caramel">
-        <date>2017-01</date>
-        <energy></energy>
-        <ingredients>
-            <water>true</water>
-            <sugar>324</sugar>
-            <fructose>24</fructose>
-            <vanillin>27</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>44</proteins>
-            <fats>2</fats>
-            <carbohydrates>4151</carbohydrates>
-        </energyvalue>
-        <description>So-so</description>
-    </caramel>
-    <caramel name="Caramel04" production="" type="Caramel">
-        <date>2017-01</date>
-        <energy>423</energy>
-        <ingredients>
-            <water>true</water>
-            <sugar>324</sugar>
-            <fructose>24</fructose>
-            <vanillin>27</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>44</proteins>
-            <fats>2</fats>
-            <carbohydrates>4151</carbohydrates>
-        </energyvalue>
-        <description>Some description here</description>
-    </caramel>
-    <caramel name="Caramel05" production="" type="Caramel">
-        <date>2017-01</date>
-        <energy>423</energy>
-        <ingredients>
-            <water>true</water>
-            <sugar>324</sugar>
-            <fructose>24</fructose>
-            <vanillin>27</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>44</proteins>
-            <fats>2</fats>
-            <carbohydrates>4151</carbohydrates>
-        </energyvalue>
-        <description>Tasty</description>
-    </caramel>
-    <caramel name="Caramel06" production="" type="Caramel">
-        <date>2017-01</date>
-        <energy>423</energy>
-        <ingredients>
-            <water>true</water>
-            <sugar>324</sugar>
-            <fructose>24</fructose>
-            <vanillin>27</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>44</proteins>
-            <fats>2</fats>
-            <carbohydrates>4151</carbohydrates>
-        </energyvalue>
-        <description>Very tasty</description>
-    </caramel>
-    <chocolate  name="Chocolate07" type="Chocolate With filling" production="Kom AOA">
-        <date>2018-02</date>
-        <energy>21</energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <chocolate  name="Chocolate08" type="Chocolate Without filling" production="Kom AOA">
-        <date>2018-02</date>
-        <energy>21</energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <chocolate  name="Chocolate09" type="Chocolate With filling" production="Kom AOA">
-        <date>2018-02</date>
-        <energy></energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <chocolate  name="Chocolate10" type="Chocolate With filling" production="Kom AOA">
-        <date>2018-02</date>
-        <energy>21</energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
-    </chocolate>
-    <chocolate  name="Chocolate11" type="Chocolate With filling" production="Kom AOA">
-        <date>2018-02</date>
-        <energy>21</energy>
-        <ingredients chocolatetype="black">
-            <water>true</water>
-            <sugar>0.015</sugar>
-            <fructose>0.14</fructose>
-            <vanillin>0.01</vanillin>
-        </ingredients>
-        <energyvalue>
-            <proteins>0.01</proteins>
-            <fats>2.0</fats>
-            <carbohydrates>1.5</carbohydrates>
-        </energyvalue>
-        <description></description>
     </chocolate>
 </candies>

@@ -62,31 +62,4 @@ public class Caramel
         this.type = value;
     }
 
-    @Override
-    public String toString() {
-        return "Caramel{" +
-                "type='" + type + '\'' +
-                ", date=" + date +
-                ", energy=" + energy +
-                ", ingredients=" + ingredients +
-                ", energyvalue=" + energyvalue +
-                ", description='" + description + '\'' +
-                ", name='" + name + '\'' +
-                ", production='" + production + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Caramel caramel = (Caramel) o;
-        return Objects.equals(type, caramel.type);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(type);
-    }
 }

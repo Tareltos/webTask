@@ -149,32 +149,4 @@ public class Ingredients {
         this.chocolatetype = value;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ingredients that = (Ingredients) o;
-        return water == that.water &&
-                Double.compare(that.sugar, sugar) == 0 &&
-                Double.compare(that.fructose, fructose) == 0 &&
-                Double.compare(that.vanillin, vanillin) == 0 &&
-                Objects.equals(chocolatetype, that.chocolatetype);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(water, sugar, fructose, vanillin, chocolatetype);
-    }
-
-    @Override
-    public String toString() {
-        return "Ingredients{" +
-                "water=" + water +
-                ", sugar=" + sugar +
-                ", fructose=" + fructose +
-                ", vanillin=" + vanillin +
-                ", chocolatetype='" + chocolatetype + '\'' +
-                '}';
-    }
 }

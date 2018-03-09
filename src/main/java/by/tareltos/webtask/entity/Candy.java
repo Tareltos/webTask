@@ -216,36 +216,4 @@ public class Candy {
         energy = 200.0;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Candy candy = (Candy) o;
-        return Double.compare(candy.energy, energy) == 0 &&
-                Objects.equals(date, candy.date) &&
-                Objects.equals(ingredients, candy.ingredients) &&
-                Objects.equals(energyvalue, candy.energyvalue) &&
-                Objects.equals(description, candy.description) &&
-                Objects.equals(name, candy.name) &&
-                Objects.equals(production, candy.production);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(date, energy, ingredients, energyvalue, description, name, production);
-    }
-
-    @Override
-    public String toString() {
-        return "Candy{" +
-                "date=" + date +
-                ", energy=" + energy +
-                ", ingredients=" + ingredients +
-                ", energyvalue=" + energyvalue +
-                ", description='" + description + '\'' +
-                ", name='" + name + '\'' +
-                ", production='" + production + '\'' +
-                '}';
-    }
 }
